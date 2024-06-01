@@ -14,9 +14,21 @@ export class KnexCustomersRepository implements CustomersRepository {
 
         const query = knex("customers").select();
 
-        const customer = await query.where("id", "=", id).select("*");
+        return await query.where("id", "=", id).select("*");
 
-        return customer;
+    }
+
+    async findByEmail(email: string): Promise<Customer[] | []> {
+
+        const query = knex("customers").select();
+
+        return await query.where("email", "=", email).select("*");
+
+    }
+
+    async create(customer: Customer): Promise<number[]> {
+
+        return await knex("customers").insert(customer);
 
     }
 }

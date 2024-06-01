@@ -4,13 +4,10 @@ import ICustomer from "./interfaces/ICustomer";
 
 export class Customer implements ICustomer {
     constructor(
-        public id: string,
-        public first_name: string,
-        public last_name: string,
-        public birth_date: Date,
-        public cpf: number,
+        public name: string,
         public email: string,
-        public account_id: string,
-        public created_at: Date
+        public password: string,
+        public id?: string,
+        public created_at?: Date
     ) { }
 }
